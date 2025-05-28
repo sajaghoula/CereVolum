@@ -29,7 +29,10 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><span>Cere</span>Volum</a>
+                <a href="index.html" class="logo">
+                  <img width="70px" src="images/CereLogum.png" alt="CereVolum Logo">
+                  <span>Cere</span>Volum
+                </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="technology.html" class="active">Technology</a></li>
@@ -57,6 +60,7 @@
                     
                     <div class="tech-list">
                         <h3>Key Features:</h3>
+                        <br>
                         <ul>
                             <li>Fully automated processing pipeline</li>
                             <li>Left/right hippocampus segmentation</li>
@@ -77,7 +81,7 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                     <div>
                         <h4 style="color: var(--primary); margin-bottom: 10px;">Input</h4>
-                        <p>T1-weighted MRI (NII and NIfTI format)</p>
+                        <p>MRI ( Nifti (nii.gz) and Analyze (.hdr/.img) format)</p>
                     </div>
                     <div>
                         <h4 style="color: var(--primary); margin-bottom: 10px;">Output</h4>
@@ -309,7 +313,7 @@ header {
 
 /* Features Section */
 .features {
-  padding: 100px 0;
+  padding: 150px 0;
   background-color: #fbfaf8;
 }
 
@@ -373,7 +377,7 @@ header {
 
 /* Technology Section */
 .tech {
-  padding: 100px 0;
+  padding: 150px 0;
   background: linear-gradient(135deg, #f7fafc 0%, #ebf4ff 100%);
 }
 
@@ -431,7 +435,7 @@ header {
 
 /* achievements Section */
 .achievements {
-  padding: 100px 0;
+  padding: 150px 0;
   background-color: #fbfaf8;
 }
 
@@ -469,7 +473,7 @@ header {
 
 /* Contact Section */
 .contact {
-  padding: 100px 0;
+  padding: 150px 0;
   background: linear-gradient(135deg, #f7fafc 0%, #ebf4ff 100%);
 }
 
@@ -663,5 +667,19 @@ footer {
   .feature-grid, .pub-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem; /* Optional: adjust text size */
+  gap: 0.4rem; /* Optional: space between image and text */
+  text-decoration: none;
+  color: inherit; /* Optional: match surrounding text color */
+}
+.logo img {
+  display: block;
+  height: 70px; 
+  width:70px;
 }
 </style>

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CereVolum - Advanced Hippocampus Segmentation</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,8 +14,11 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><span><img width="70px" src="images/CereLogum.png" > Cere</span>Volum</a>
-                <ul class="nav-links">
+                <a href="index.html" class="logo">
+                  <img width="70px" src="images/CereLogum.png" alt="CereVolum Logo">
+                  <span>Cere</span>Volum
+                </a>
+                    <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="technology.html">Technology</a></li>
                     <li><a href="applications.html">Applications</a></li>
@@ -84,29 +86,6 @@
         </div>
     </section>
 
-    <!-- Technology Preview Section -->
-    <!-- <section class="tech">
-        <div class="container">
-            <div class="tech-content">
-                <div class="tech-image">
-                    <img src="images/tech-preview.jpg" alt="CereVolum Technology">
-                </div>
-                <div class="tech-text">
-                    <h2>Advanced Segmentation Technology</h2>
-                    <p>CereVolum utilizes state-of-the-art deep learning algorithms optimized for hippocampus segmentation across diverse populations and imaging protocols.</p>
-                    <ul class="tech-list">
-                        <li>Fully automated processing pipeline</li>
-                        <li>Left/right hippocampus segmentation</li>
-                        <li>Gender and age prediction</li>
-                        <li>Volumetric analysis in mm³ and cm³</li>
-                        <li>Quality control metrics</li>
-                        <li>Standardized output formats</li>
-                    </ul>
-                    <a href="technology.html" class="btn btn-primary">Learn About Our Technology</a>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
 <!-- Segmentation Planes Section -->
 <section class="segmentation-planes">
@@ -393,7 +372,7 @@ header {
 
 /* Features Section */
 .features {
-  padding: 100px 0;
+  padding: 150px 0;
   background-color: #fbfaf8;
 }
 
@@ -469,7 +448,7 @@ header {
 
 /* Technology Section */
 .tech {
-  padding: 100px 0;
+  padding: 150px 0;
   background: linear-gradient(135deg, #f7fafc 0%, #ebf4ff 100%);
 }
 
@@ -527,7 +506,7 @@ header {
 
 /* achievements Section */
 .achievements {
-  padding: 100px 0;
+  padding: 150px 0;
   background-color: #fbfaf8;
 }
 
@@ -565,7 +544,7 @@ header {
 
 /* Contact Section */
 .contact {
-  padding: 100px 0;
+  padding: 150px 0;
   background: linear-gradient(135deg, #f7fafc 0%, #ebf4ff 100%);
 }
 
@@ -823,15 +802,28 @@ footer {
 .plane-details li {
     margin-bottom: 8px;
     position: relative;
-    padding-left: 20px;
+    padding-left: 5px;
 }
 
 .plane-details li:before {
-    content: "•";
     color: var(--primary);
     position: absolute;
     left: 0;
     font-size: 20px;
     line-height: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem; /* Optional: adjust text size */
+  gap: 0.4rem; /* Optional: space between image and text */
+  text-decoration: none;
+  color: inherit; /* Optional: match surrounding text color */
+}
+.logo img {
+  display: block;
+  height: 70px; 
+  width:70px;
 }
 </style>

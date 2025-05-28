@@ -29,7 +29,10 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><span>Cere</span>Volum</a>
+                <a href="index.html" class="logo">
+                  <img width="70px" src="images/CereLogum.png" alt="CereVolum Logo">
+                  <span>Cere</span>Volum
+                </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="technology.html">Technology</a></li>
@@ -91,7 +94,7 @@
                         </div>
                         <div class="info-text">
                             <h4>Phone</h4>
-                            <p>+1 (555) 123-4567</p>
+                            <p>+34 652814789</p>
                         </div>
                     </div>
                     
@@ -101,7 +104,7 @@
                         </div>
                         <div class="info-text">
                             <h4>Address</h4>
-                            <p>123 Neuroscience Way<br>Boston, MA 02115<br>United States</p>
+                            <p>07 Plaza Roja<br>Santiago de Compostela, A Coruna<br>Spain</p>
                         </div>
                     </div>
                     
@@ -335,7 +338,7 @@ header {
 
 /* Features Section */
 .features {
-  padding: 100px 0;
+  padding: 150px 0;
   background-color: #fbfaf8;
 }
 
@@ -399,7 +402,7 @@ header {
 
 /* Technology Section */
 .tech {
-  padding: 100px 0;
+  padding: 150px 0;
   background: linear-gradient(135deg, #f7fafc 0%, #ebf4ff 100%);
 }
 
@@ -458,7 +461,7 @@ header {
 
 /* achievements Section */
 .achievements {
-  padding: 100px 0;
+  padding: 150px 0;
   background-color: #fbfaf8;
 }
 
@@ -496,7 +499,7 @@ header {
 
 /* Contact Section */
 .contact {
-  padding: 100px 0;
+  padding: 150px 0;
   background: linear-gradient(135deg, #f7fafc 0%, #ebf4ff 100%);
 }
 
@@ -690,5 +693,19 @@ footer {
   .feature-grid, .pub-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem; /* Optional: adjust text size */
+  gap: 0.4rem; /* Optional: space between image and text */
+  text-decoration: none;
+  color: inherit; /* Optional: match surrounding text color */
+}
+.logo img {
+  display: block;
+  height: 70px; 
+  width:70px;
 }
 </style>

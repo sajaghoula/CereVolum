@@ -106,7 +106,7 @@
 
     /* Hero Section */
     .hero {
-      padding: 100px 0;
+      padding: 150px 0;
       text-align: center;
       background: linear-gradient(135deg, #f7fafc 0%, #ebf4ff 100%);
     }
@@ -360,6 +360,21 @@
         font-size: 32px;
       }
     }
+
+    .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem; /* Optional: adjust text size */
+  gap: 0.4rem; /* Optional: space between image and text */
+  text-decoration: none;
+  color: inherit; /* Optional: match surrounding text color */
+}
+.logo img {
+  display: block;
+  height: 70px; 
+  width:70px;
+}
+
     </style>
 </head>
 <body>
@@ -367,7 +382,10 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html" class="logo"><span>Cere</span>Volum</a>
+                <a href="index.html" class="logo">
+                  <img width="70px" src="images/CereLogum.png" alt="CereVolum Logo">
+                  <span>Cere</span>Volum
+                </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="technology.html">Technology</a></li>
@@ -400,7 +418,7 @@
                     <div class="metric-icon">
                         <i class="fas fa-ruler-combined"></i>
                     </div>
-                    <div class="metric-value">0.94</div>
+                    <div class="metric-value">0.81</div>
                     <div class="metric-label">Dice Coefficient</div>
                     <div class="metric-description">Mean ± 0.02 across 300 scans</div>
                 </div>
@@ -418,7 +436,7 @@
                     <div class="metric-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <div class="metric-value">96%</div>
+                    <div class="metric-value">87%</div>
                     <div class="metric-label">Sensitivity</div>
                     <div class="metric-description">in pathology detection</div>
                 </div>
@@ -426,70 +444,7 @@
         </div>
     </section>
 
-    <!-- Comparison Section -->
-    <section class="comparison-section">
-        <div class="container">
-            <div class="comparison-figure">
-                <img src="images/ground-truth-comparison.jpg" alt="CereVolum vs manual segmentation comparison">
-                <div class="figure-caption">
-                    Fig 1. CereVolum segmentation (blue) vs. ground truth (red) with 94% overlap
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Achievements Section -->
-    <section class="achievements-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Notable Achievements</h2>
-            </div>
-
-            <div class="achievement-card">
-                <h3>Industry-Leading Performance</h3>
-                <ul>
-                    <li>Outperformed 7 competing tools in the 2023 Hippocampal Segmentation Challenge</li>
-                    <li>20x faster processing than manual segmentation (4 min vs 80 min)</li>
-                    <li>Consistent results across MRI vendors (GE, Siemens, Philips)</li>
-                </ul>
-            </div>
-
-            <div class="achievement-card">
-                <h3>Clinical Impact</h3>
-                <ul>
-                    <li>Adopted by 12 leading research hospitals for Alzheimer's studies</li>
-                    <li>Enabled detection of 0.5mm³ atrophy changes in longitudinal studies</li>
-                    <li>Reduced inter-rater variability from 15% to 2% in clinical trials</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Section -->
-    <!-- <section class="research-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Research Adoption</h2>
-                <p>Trusted by neuroscientists worldwide</p>
-            </div>
-
-            <div class="research-grid">
-                <div class="research-card">
-                    <h3>ADNI Consortium</h3>
-                    <p>Standardized hippocampal volumetry across 50+ sites</p>
-                    <p class="pub-journal">Alzheimer's Disease Neuroimaging Initiative</p>
-                    <a href="#" class="btn btn-outline">Case Study</a>
-                </div>
-                
-                <div class="research-card">
-                    <h3>Epilepsy Center</h3>
-                    <p>94% concordance with surgical outcomes in temporal lobe epilepsy</p>
-                    <p class="pub-journal">Journal of Neurosurgery</p>
-                    <a href="#" class="btn btn-outline">Read Report</a>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Footer -->
     <footer>
