@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements | CereVolum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    /* Modern Color Scheme */
+    :root {
+      --primary: #2a5bd7;
+      --secondary: #1a365d;
+      --accent: #e53e3e;
+      --light: #f7fafc;
+      --dark: #1a202c;
+      --gray: #718096;
+      --light-gray: #edf2f7;
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      padding-top: 80px; /* For fixed header */
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--secondary);
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 30px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 0;
+      text-align: center;
+      background: linear-gradient(135deg, #f7fafc 0%, #ebf4ff 100%);
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Metrics Section */
+    .metrics-section {
+      padding: 80px 0;
+      background-color: white;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .metric-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .metric-icon {
+      font-size: 36px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .metric-value {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 10px 0;
+    }
+
+    .metric-label {
+      font-size: 18px;
+      color: var(--dark);
+    }
+
+    .metric-description {
+      font-size: 14px;
+      color: var(--gray);
+      margin-top: 10px;
+    }
+
+    /* Comparison Section */
+    .comparison-section {
+      padding: 60px 0;
+      background-color: var(--light);
+    }
+
+    .comparison-figure {
+      max-width: 800px;
+      margin: 40px auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .comparison-figure img {
+      width: 100%;
+      display: block;
+    }
+
+    .figure-caption {
+      text-align: center;
+      padding: 15px;
+      background-color: white;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    /* Achievements Section */
+    .achievements-section {
+      padding: 80px 0;
+      background-color: white;
+    }
+
+    .achievement-card {
+      background: white;
+      border-left: 4px solid var(--primary);
+      padding: 25px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .achievement-card h3 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+
+    .achievement-card ul {
+      padding-left: 20px;
+    }
+
+    .achievement-card li {
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    /* Research Section */
+    .research-section {
+      padding: 80px 0;
+      background-color: var(--light);
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .research-card {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .research-card h3 {
+      color: var(--secondary);
+      margin-bottom: 15px;
+    }
+
+    .research-card p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: white;
+      padding: 50px 0 20px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo span {
+      color: var(--primary);
+    }
+
+    .footer-links h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #cbd5e0;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 15px 0;
+      }
+      
+      .nav-links {
+        margin-top: 20px;
+      }
+      
+      .nav-links li {
+        margin: 10px 0;
+      }
+      
+      .hero h1 {
+        font-size: 32px;
+      }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.php" class="logo"><span>Cere</span>Volum</a>
+                <ul class="nav-links">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="technology.php">Technology</a></li>
+                    <li><a href="applications.php">Applications</a></li>
+                    <li><a href="achievements.php" class="active">Achievements</a></li>
+                    <li><a href="contact.php">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Scientific Validation</h1>
+            <p>Quantifiable evidence of CereVolum's precision in hippocampal analysis</p>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ground Truth Validation</h2>
+                <p>Validated against manual segmentation by expert neuroradiologists</p>
+            </div>
+
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <div class="metric-value">0.94</div>
+                    <div class="metric-label">Dice Coefficient</div>
+                    <div class="metric-description">Mean ± 0.02 across 300 scans</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-border-style"></i>
+                    </div>
+                    <div class="metric-value">1.2mm³</div>
+                    <div class="metric-label">Volume Difference</div>
+                    <div class="metric-description">vs. manual segmentation</div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="metric-value">96%</div>
+                    <div class="metric-label">Sensitivity</div>
+                    <div class="metric-description">in pathology detection</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="comparison-figure">
+                <img src="images/ground-truth-comparison.jpg" alt="CereVolum vs manual segmentation comparison">
+                <div class="figure-caption">
+                    Fig 1. CereVolum segmentation (blue) vs. ground truth (red) with 94% overlap
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notable Achievements</h2>
+            </div>
+
+            <div class="achievement-card">
+                <h3>Industry-Leading Performance</h3>
+                <ul>
+                    <li>Outperformed 7 competing tools in the 2023 Hippocampal Segmentation Challenge</li>
+                    <li>20x faster processing than manual segmentation (4 min vs 80 min)</li>
+                    <li>Consistent results across MRI vendors (GE, Siemens, Philips)</li>
+                </ul>
+            </div>
+
+            <div class="achievement-card">
+                <h3>Clinical Impact</h3>
+                <ul>
+                    <li>Adopted by 12 leading research hospitals for Alzheimer's studies</li>
+                    <li>Enabled detection of 0.5mm³ atrophy changes in longitudinal studies</li>
+                    <li>Reduced inter-rater variability from 15% to 2% in clinical trials</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <!-- <section class="research-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research Adoption</h2>
+                <p>Trusted by neuroscientists worldwide</p>
+            </div>
+
+            <div class="research-grid">
+                <div class="research-card">
+                    <h3>ADNI Consortium</h3>
+                    <p>Standardized hippocampal volumetry across 50+ sites</p>
+                    <p class="pub-journal">Alzheimer's Disease Neuroimaging Initiative</p>
+                    <a href="#" class="btn btn-outline">Case Study</a>
+                </div>
+                
+                <div class="research-card">
+                    <h3>Epilepsy Center</h3>
+                    <p>94% concordance with surgical outcomes in temporal lobe epilepsy</p>
+                    <p class="pub-journal">Journal of Neurosurgery</p>
+                    <a href="#" class="btn btn-outline">Read Report</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo"><span>Cere</span>Volum</div>
+                    <p>Advanced hippocampus segmentation for research and clinical applications.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="technology.php">Technology</a></li>
+                        <li><a href="applications.php">Applications</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="achievements.php">Achievements</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="contact.php">Contact Us</a></li>
+                        <li><a href="#">Request Demo</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CereVolum. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
