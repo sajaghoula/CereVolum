@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CereVolum Viewer</title>
+</head>
+<body>
+  <h2>Upload T1 and Masks</h2>
+  <form id="uploadForm">
+    <input type="file" id="t1" name="t1" accept=".nii.gz" required><br>
+    <input type="file" id="mask_l" name="mask_l" accept=".nii.gz" required><br>
+    <input type="file" id="mask_r" name="mask_r" accept=".nii.gz" required><br>
+    <button type="submit">Upload and Visualize</button>
+  </form>
+
+  <div id="controls" style="display:none;">
+    <input type="range" id="sliceSlider" min="0" value="0">
+    <span id="sliceIndex"></span>
+  </div>
+
+  <div id="viewer">
+    <img id="sliceImage" src="" style="max-width:100%; border:1px solid #ccc;">
+  </div>
+
+  <script>
+    const form = document.getElementById('uploadForm');
+    const sliceImage = document.getElementById('sliceImage');
+    const sliceSlider = document.getElementById('sliceSlider');
+    const sliceIndex = document.getElementById('sliceIndex');
+    const controls = document.getElementById('controls');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const t1 = document.getElementById('t1').files[0];
+      const maskL = document.getElementById('mask_l').files[0];
+      const maskR = document.getElementById('mask_r').files[0];
+      const formData = new FormData();
+      formData.append('t1', t1);
+      formData.append('mask_l', maskL);
+      formData.append('mask_r', maskR);
+
+      const response = await fetch('http://localhost:5000/process', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await response.json();
+
+      sliceSlider.max = data.num_slices - 1;
+      sliceSlider.value = 0;
+      controls.style.display = 'block';
+
+      const updateImage = () => {
+        const idx = sliceSlider.value.padStart(3, '0');
+        sliceIndex.textContent = `Slice ${sliceSlider.value}`;
+        sliceImage.src = `http://localhost:5000/slices/${data.session_id}/slice_${idx}.png`;
+      };
+
+      sliceSlider.addEventListener('input', updateImage);
+      updateImage();
+    });
+  </script>
+</body>
+</html>
