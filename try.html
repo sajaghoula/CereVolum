@@ -85,10 +85,10 @@
                     <img id="axialImg" src="" alt="Axial view">
                 </div>
                 <div class="slider-container">
-                    <input type="range" class="slider" id="axialSlider" min="0" max="123" value="50">
+                    <input type="range" class="slider" id="axialSlider" min="0" max="123" value="70">
                 </div>
                 <div class="info">
-                    Slice: <span id="axialSliceNum">50</span>
+                    Slice: <span id="axialSliceNum">70</span>
                 </div>
             </div>
             
@@ -98,10 +98,10 @@
                     <img id="sagittalImg" src="" alt="Sagittal view">
                 </div>
                 <div class="slider-container">
-                    <input type="range" class="slider" id="sagittalSlider" min="0" max="123" value="50">
+                    <input type="range" class="slider" id="sagittalSlider" min="0" max="123" value="70">
                 </div>
                 <div class="info">
-                    Slice: <span id="sagittalSliceNum">50</span>
+                    Slice: <span id="sagittalSliceNum">70</span>
                 </div>
             </div>
             
@@ -111,10 +111,10 @@
                     <img id="coronalImg" src="" alt="Coronal view">
                 </div>
                 <div class="slider-container">
-                    <input type="range" class="slider" id="coronalSlider" min="0" max="123" value="50">
+                    <input type="range" class="slider" id="coronalSlider" min="0" max="123" value="70">
                 </div>
                 <div class="info">
-                    Slice: <span id="coronalSliceNum">50</span>
+                    Slice: <span id="coronalSliceNum">70</span>
                 </div>
             </div>
         </div>
@@ -918,4 +918,17 @@ footer {
     display: none;
 }
 
+#sagittalImg {
+        transform: rotate(180deg) scaleX(-1);
+
+}
+
+#axialImg {
+        transform: rotate(180deg) scaleX(-1);
+
+}
+#coronalImg {
+        transform: rotate(180deg) scaleX(-1);
+
+}
 </style>
