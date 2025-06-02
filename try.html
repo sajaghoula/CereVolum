@@ -49,7 +49,7 @@
 
       <!-- Hero -->
   <section class="hero container">
-    <h1>Try CereVolum</h1>
+    <div class="footer-logo" style="font-size: 40px !important;">Try <span>Cere</span>Volum</div>
     <p>Upload your .nii.gz image to get hippocampus segmentation</p>
     
     <form id="uploadForm">
@@ -130,26 +130,46 @@
     const view_3views = document.getElementById('view3views');
 
 
-    form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        loading.style.display = 'block';
-
-        // Sleep function using a Promise
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+    
+    loading.style.display = 'block';
+    
+    try {
+        // First send the file for processing
+        const processResponse = await fetch('http://localhost:5000/process', {
+            method: 'POST',
+            body: formData
+        });
+        
+        // Check if response is JSON
+        const contentType = processResponse.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            const text = await processResponse.text();
+            throw new Error(`Server returned ${processResponse.status}: ${text}`);
         }
-
-        // Wait 30 seconds (30000 milliseconds)
-        await sleep(10000);
-
-        // After sleep, hide loading and show MRI viewer
+        
+        const processResult = await processResponse.json();
+        if (!processResponse.ok) {
+            throw new Error(processResult.error || 'Processing failed');
+        }
+        
+        // Then show the viewer
         loading.style.display = 'none';
-
         if (view_3views) {
-            view_3views.style.display = 'block';  // or 'block' depending on your layout
+            view_3views.style.display = 'block';
+            // Initialize the viewer with the processed data
+            init();
         }
-    });
+    } catch (error) {
+        loading.style.display = 'none';
+        console.error('Full error:', error);
+        alert(`Error: ${error.message}`);
+    }
+});
         async function updateView(plane, sliceNum) {
             try {
                 const res = await fetch(`http://localhost:5000/get_slice/${plane}/${sliceNum}`);
